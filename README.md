@@ -13,3 +13,16 @@ built using <br/>
 -Dlib <br/>
 -OpenCV <br/>
 
+### The algorithm:
+Step 1: capture the frame ffrom the live video and re-scaled and transform the frame to gray scale to reduce the computations.
+
+Step 2: cv2 detector detect the face position and cut it from the frame. 
+
+Step 3: Dlib predictor determine facial landmark and find position of eyes andmouth.
+
+Step 4: The coordinates of eyes are taken to calculate the EAR ratio to detremine if the person is closing his eye or not according to its threshold wich is = 20 (EAR value)
+
+Step 5: The coordinates of mouth are taken to calculate the distance between lips to detremine if the person is yawning or not according to its threshold wich is = 20(yawning value)
+
+Step 6: if the (EAR value) or the (yawning value) reaches there threshold wait for some frames (30 in this app) to avoid eyes blinking then if the eyes still closed or still yawning switch the alarm on to Wake up the person or driver to prevent accident.
+
